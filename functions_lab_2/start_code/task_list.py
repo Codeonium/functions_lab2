@@ -35,8 +35,18 @@ def time_it_takes(tasks_list):
     return tasks_filtered
 timed_task = time_it_takes(tasks)
 
-print(timed_task)
+#print(timed_task)
 # 5. Print any task with a given description
+def task_descript(tasks_list):
+    tasks_filtered = []
+    for task in tasks_list:
+        if task["description"]:
+            tasks_filtered.append(task)
+    return tasks_filtered
+
+
+tasks_description = task_descript(tasks)
+print(tasks_description)
 
 
 # ### Extension
