@@ -27,7 +27,15 @@ tasks = [
 # 3. Print a list of all task descriptions
 
 # 4. Print a list of tasks where time_taken is at least a given time
+def time_it_takes(tasks_list):
+    tasks_filtered = []
+    for task in tasks_list:
+        if task["time_taken"] > 10:
+            tasks_filtered.append(task)
+    return tasks_filtered
+timed_task = time_it_takes(tasks)
 
+print(timed_task)
 # 5. Print any task with a given description
 
 
