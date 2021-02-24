@@ -21,35 +21,54 @@ tasks = [
 # As a user, to manage my task list I would like a program that allows me to:
 
 # 1. Print a list of uncompleted tasks
+def uncomp_task(tasks_list):
+    tasks_filtered = []
+    for task in tasks_list:
+        if task["completed"] == False:
+            tasks_filtered.append(task["description"])
+    return tasks_filtered
+tasks_not_completed = uncomp_task(tasks)
+print(f"This tasks have not been completed: {tasks_not_completed}")
 
 # 2. Print a list of completed tasks
+def comp_task(tasks_list):
+    tasks_filtered = []
+    for task in tasks_list:
+        if task["completed"] == True:
+            tasks_filtered.append(task["description"])
+    return tasks_filtered
+tasks_completed = comp_task(tasks)
+print(f"The following tasks are the reason you can have your feet up: {tasks_completed}")
 
 # 3. Print a list of all task descriptions
+def all_tasks(tasks_list):
+    tasks_filtered = []
+    for task in tasks_list:
+        if task["description"]:
+            tasks_filtered.append(task["description"])
+    return tasks_filtered
+all_tasks_result = all_tasks(tasks)
+print(f"And here I present to you, all the tasks you had for today: {all_tasks_result}")
 
 # 4. Print a list of tasks where time_taken is at least a given time
 def time_it_takes(tasks_list):
     tasks_filtered = []
     for task in tasks_list:
         if task["time_taken"] > 10:
-            tasks_filtered.append(task)
+            tasks_filtered.append(task["description"])
     return tasks_filtered
 timed_task = time_it_takes(tasks)
+print(f"The following tasks all take more than 10 minutes: {timed_task}")
 
-#print(timed_task)
 # 5. Print any task with a given description
-def task_descript(tasks_list):
+def task_descript(tasks_list, task_description):
     tasks_filtered = []
     for task in tasks_list:
-        if task["description"]:
-            tasks_filtered.append(task)
+        if task["description"] == task_description:
+            tasks_filtered.append(task["description"])
     return tasks_filtered
-
-
-tasks_description = task_descript(tasks)
-print(tasks_description)
-
-
-# ### Extension
+tasks_result = task_descript(tasks, "Feed Cat")
+print(f"Hey, don't forget: {tasks_result}")
 
 # 6. Given a description update that task to mark it as complete.
 
